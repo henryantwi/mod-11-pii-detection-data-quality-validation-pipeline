@@ -1,0 +1,29 @@
+VALIDATION RESULTS
+==================
+
+PASS: 3 rows passed all checks
+FAIL: 7 rows failed
+
+FAILURES BY COLUMN:
+-------------------
+account_status:
+- Row 3: '2024-01-11' (Invalid status)
+- Row 5: 'nan' (Invalid status)
+
+income:
+- Row 3: 'active' (Non-numeric income)
+
+first_name:
+- Row 4: 'nan' (Empty)
+
+last_name:
+- Row 6: 'nan' (Empty)
+
+date_of_birth:
+- Row 7: 'invalid_date' (Invalid date format)
+
+address:
+- Row 10: 'nan' (Address too short or empty)
+
+created_date:
+- Row 11: 'invalid_date' (Invalid date format)

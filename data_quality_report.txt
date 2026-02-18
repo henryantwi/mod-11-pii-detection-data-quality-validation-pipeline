@@ -1,0 +1,32 @@
+DATA QUALITY PROFILE REPORT
+===========================
+
+COMPLETENESS:
+- customer_id: 100.0% (0 missing)
+- first_name: 90.0% (1 missing)
+- last_name: 90.0% (1 missing)
+- email: 100.0% (0 missing)
+- phone: 100.0% (0 missing)
+- date_of_birth: 100.0% (0 missing)
+- address: 90.0% (1 missing)
+- income: 90.0% (1 missing)
+- account_status: 90.0% (1 missing)
+- created_date: 90.0% (1 missing)
+
+DATA TYPES:
+- customer_id: int64
+- first_name: object
+- last_name: object
+- email: object
+- phone: object
+- date_of_birth: object
+- address: object
+- income: object
+- account_status: object
+- created_date: object
+
+QUALITY ISSUES:
+1. Invalid dates in date_of_birth: ['1975/05/10', 'invalid_date']
+2. Invalid dates in created_date: ['01/15/2024', 'invalid_date']
+3. Non-numeric income values: ['active']
+4. Invalid account_status values: ['2024-01-11']

@@ -1,0 +1,10 @@
+VALIDATION RESULTS
+==================
+
+PASS: 9 rows passed all checks
+FAIL: 1 rows failed
+
+FAILURES BY COLUMN:
+-------------------
+account_status:
+- Row 5: 'unknown' (Invalid status)
