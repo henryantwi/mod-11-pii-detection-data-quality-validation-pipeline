@@ -1,0 +1,49 @@
+DATA QUALITY PROFILE REPORT
+===========================
+
+COMPLETENESS:
+- customer_id: 100.0% (complete)
+- first_name: 90.0% (1 missing)
+- last_name: 90.0% (1 missing)
+- email: 100.0% (complete)
+- phone: 100.0% (complete)
+- date_of_birth: 100.0% (complete)
+- address: 90.0% (1 missing)
+- income: 90.0% (1 missing)
+- account_status: 90.0% (1 missing)
+- created_date: 90.0% (1 missing)
+
+DATA TYPES:
+- customer_id: INT64 ✓
+- first_name: OBJECT ✓
+- last_name: OBJECT ✓
+- email: OBJECT ✓
+- phone: OBJECT ✓
+- date_of_birth: OBJECT ✗ (should be DATE)
+- address: OBJECT ✓
+- income: OBJECT ✗ (should be NUMERIC)
+- account_status: OBJECT ✓
+- created_date: OBJECT ✗ (should be DATE)
+
+QUALITY ISSUES:
+1. [date_of_birth] Invalid date values (2 rows affected)
+   Examples: ['1975/05/10', 'invalid_date']
+2. [created_date] Invalid date values (2 rows affected)
+   Examples: ['01/15/2024', 'invalid_date']
+3. [income] Non-numeric income values (1 rows affected)
+   Examples: ['active']
+4. [account_status] Invalid status values (1 rows affected)
+   Examples: ['2024-01-11']
+5. [first_name] Missing first_name (1 rows affected)
+   Examples: ['Row 4']
+6. [last_name] Missing last_name (1 rows affected)
+   Examples: ['Row 6']
+7. [address] Missing address (1 rows affected)
+   Examples: ['Row 10']
+8. [phone] Inconsistent phone formats (10 rows affected)
+   Examples: ['XXX.XXX.XXXX', 'XXX-XXX-XXXX', '(XXX) XXX-XXXX', 'XXXXXXXXXX (no separators)']
+
+SEVERITY:
+- Critical (blocks processing): 1
+- High (data incorrect): 3
+- Medium (needs cleaning): 4
