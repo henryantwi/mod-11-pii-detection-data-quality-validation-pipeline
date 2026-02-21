@@ -41,7 +41,7 @@ QUALITY ISSUES:
 7. [address] Missing address (1 rows affected)
    Examples: ['Row 10']
 8. [phone] Inconsistent phone formats (10 rows affected)
-   Examples: ['XXX.XXX.XXXX', 'XXX-XXX-XXXX', '(XXX) XXX-XXXX', 'XXXXXXXXXX (no separators)']
+   Examples: ['XXXXXXXXXX (no separators)', 'XXX.XXX.XXXX', '(XXX) XXX-XXXX', 'XXX-XXX-XXXX']
 
 SEVERITY:
 - Critical (blocks processing): 1

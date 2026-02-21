@@ -14,4 +14,4 @@ ACTIONS TAKEN:
 - Missing income: 1 rows filled with '0'
 - Missing account_status: 1 rows filled with 'unknown'
 - Missing date_of_birth: 1 rows filled with '1900-01-01'
-- Missing created_date: 1 rows filled with '2026-02-20'
+- Missing created_date: 1 rows filled with '2026-02-21'
