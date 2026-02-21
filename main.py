@@ -39,6 +39,7 @@ def write_report(filename: str, content: str):
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Wrote {filepath}")
 
 
+
 def run_pipeline():
     start_time = datetime.datetime.now()
     exec_log = [
