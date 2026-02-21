@@ -11,6 +11,7 @@ Ties together all modular pipeline stages:
 
 import os
 import datetime
+import logging
 
 import pandas as pd
 
@@ -20,6 +21,14 @@ from src.validation import validator
 from src.cleaning import cleaner
 from src.masking import masker
 
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%H:%M:%S"
+)
+logger = logging.getLogger(__name__)
 
 # Configuration paths
 DATA_DIR = "data"
@@ -36,8 +45,7 @@ def write_report(filename: str, content: str):
     filepath = os.path.join(REPORTS_DIR, filename)
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Wrote {filepath}")
-
+    logger.info(f"Wrote {filepath}")
 
 
 def run_pipeline():
@@ -50,7 +58,7 @@ def run_pipeline():
         "",
     ]
 
-    print("--- Starting Pipeline ---")
+    logger.info("--- Starting Pipeline ---")
 
     # -----------------------------------------------------------------
     # Stage 1: Load
@@ -62,6 +70,7 @@ def run_pipeline():
     except Exception as e:
         exec_log.append(f"X Failed to load data: {e}")
         write_report("pipeline_execution_report.txt", "\n".join(exec_log))
+        logger.error(f"Failed to load data: {e}")
         return
     exec_log.append("")
 
@@ -144,7 +153,7 @@ def run_pipeline():
     exec_log.append("Status: SUCCESS ✓")
 
     write_report("pipeline_execution_report.txt", "\n".join(exec_log))
-    print("--- Pipeline Finished ---")
+    logger.info("--- Pipeline Finished ---")
 
 
 if __name__ == "__main__":
