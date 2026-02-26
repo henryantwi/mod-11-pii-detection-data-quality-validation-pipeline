@@ -1,1 +1,4 @@
+pandas
+numpy
+pydantic[email]
 pytest
